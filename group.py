@@ -30,8 +30,10 @@ tot_conns = []
 
 for person in my_group:
     
+    n_conns = len(person['Connections'])
+    
     tot_ages.append(person['Age'])
-    tot_conns.append(len(person['Connections'])) #number of connections
+    tot_conns.append(n_conns) #number of connections
     n_friends = 0 #intialise number of friends to 0
     
     #Pick out only people with more than one connection
@@ -50,3 +52,13 @@ print('Maximum age = ' + str(max(tot_ages)))
 print('Average connections = ' + str(sum(tot_conns)/len(tot_conns)))
 print('Maximum age of people with at least one connection = ' + str(max(tot_ages_conns)))
 print('Maximum age of people with at least one friend = ' + str(max(tot_ages_friends)))
+
+import yaml
+
+with open('my_group.yaml', 'w') as f:
+    
+    data = yaml.dump(my_group, f)
+    
+a_yaml_file = open("my_group.yaml")
+parsed_yaml_file = yaml.load(a_yaml_file, Loader=yaml.FullLoader)
+print(parsed_yaml_file[1]['Name'])
