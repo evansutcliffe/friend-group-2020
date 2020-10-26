@@ -1,0 +1,37 @@
+- &id001
+  Age: 26
+  Connections:
+  - !!python/tuple
+    - &id003
+      Age: 27
+      Connections:
+      - !!python/tuple
+        - *id001
+        - Partner
+      Job: Writer
+      Name: John
+    - Partner
+  - !!python/tuple
+    - &id002
+      Age: 28
+      Connections:
+      - !!python/tuple
+        - *id001
+        - Friend
+      Job: Artist
+      Name: Zalika
+    - Friend
+  Job: Biologist
+  Name: Jill
+- *id002
+- *id003
+- Age: 34
+  Connections:
+  - !!python/tuple
+    - *id003
+    - Cousin
+  - !!python/tuple
+    - *id002
+    - Landlord
+  Job: Chef
+  Name: Nash
